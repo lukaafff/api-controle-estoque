@@ -5,6 +5,7 @@ import {DetailUserController} from "./controllers/user/DetailUserController";
 import {RemoveUserController} from "./controllers/user/RemoveUserController";
 import {CreateCategoryController} from "./controllers/category/CreateCategoryController";
 import {EditCategoryController} from "./controllers/category/EditCategoryController";
+import {ListCategoryController} from "./controllers/category/ListCategoryController";
 import {isAuthenticated} from "./middlewares/isAuthenticated";
 
 const router = Router();
@@ -22,5 +23,6 @@ router.delete('/user/remove', new RemoveUserController().handle);
 //category routes
 router.post('/category', isAuthenticated, new CreateCategoryController().handle);
 router.put('/category/edit', isAuthenticated, new EditCategoryController().handle);
+router.get('/category/all', isAuthenticated, new ListCategoryController().handle);
 
 export {router};
